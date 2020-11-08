@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-demo
+  template:
+    metadata:
+      name: prometheus-demo
+      labels:
+        app: prometheus-demo
+    spec:
+      containers:
+      - image: samzhang80/prometheus-demo:0.0.1
+        name: main
